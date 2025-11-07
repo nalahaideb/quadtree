@@ -1,10 +1,6 @@
 #include "project.h"
-//﷽﷽﷽
-//the testing shall be good and the bugs destroyed inshallah
-//﷽﷽﷽
 Event event;
 KeyPressed kp;
-//TreeNodev< int > tree(0, W - W, H - H, W, H);
 std::vector< Orb * > orb_vector;
 int start, end, dt;
 int RATE = 1000 / 60;
@@ -17,12 +13,14 @@ void controls(KeyPressed & kp);
 int main()
 {
     srand((unsigned int) time(NULL));
-    std::cout << "n : "; int n = 0; std::cin >> n;
+    //std::cout << "n : "; int n = 0; std::cin >> n;
+    int n = 100;
     for (int i = 0; i < n; ++i)
     {
         orb_vector.push_back(new Orb(10 + rand() % W,
                                      10 + rand() % H, 3, rand() % 3 - 2, rand() % 3 - 2));
     }
+    std::cout << "RIGHT ARROW: TOGGLE QUADTREE\nUP ARROW: ADD ORBS\nDOWN ARROW: REMOVE ORBS\nTAB: EXIT\n";
     while (true)
     {
         kp = get_keypressed();
